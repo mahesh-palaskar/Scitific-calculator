@@ -1,0 +1,257 @@
+from tkinter import *
+import numpy as np
+import math
+from tkinter import messagebox
+screen=Tk()
+screen.title('Smart Calculator')
+screen.geometry('365x490')
+screen.maxsize(width=453,height=488)
+screen.minsize(width=362,height=488)
+screen.configure(bg='orange')
+def touch(str):
+    global ope
+    ope+=str
+    text.set(ope)
+def clear():
+    global ope
+    ope=''
+    text.set(ope)
+def equal():
+    global ope
+    try:
+        
+        result=eval(ope)
+        ope=str(result)
+        text.set(ope)
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+def trigo(exp):
+    if exp==sin:
+        return sin
+def on_enter7(e):
+    button7.configure(bg='red')
+def on_leave7(e):
+    button7.configure(bg='powder blue')
+def on_enter8(e):
+    button8.configure(bg='gray')
+def on_leave8(e):
+    button8.configure(bg='powder blue')
+def on_enter9(e):
+    button9.configure(bg='red')
+def on_leave9(e):
+    button9.configure(bg='powder blue')
+def on_enter6(e):
+    button6.configure(bg='yellow')
+def on_leave6(e):
+    button6.configure(bg='powder blue')
+def on_enter5(e):
+    button5.configure(bg='red')
+def on_leave5(e):
+    button5.configure(bg='powder blue')
+def on_enter4(e):
+    button4.configure(bg='red')
+def on_leave4(e):
+    button4.configure(bg='powder blue')
+def on_enter3(e):
+    button3.configure(bg='red')
+def on_leave3(e):
+    button3.configure(bg='powder blue')
+def on_enter2(e):
+    button2.configure(bg='orange')
+def on_leave2(e):
+    button2.configure(bg='powder blue')
+def on_enter1(e):
+    button1.configure(bg='red')
+def on_leave1(e):
+    button1.configure(bg='powder blue')
+def on_enter0(e):
+    button0.configure(bg='red')
+def on_leave0(e):
+    button0.configure(bg='powder blue')
+def on_enter(e):
+    button7.configure(bg='red')
+def on_leave(e):
+    button7.configure(bg='powder blue')
+def on_enteradd(e):
+    buttonadd.configure(bg='red')
+def on_leaveadd(e):
+    buttonadd.configure(bg='powder blue')
+def on_entersub(e):
+    buttonsub.configure(bg='red')
+def on_leavesub(e):
+    buttonsub.configure(bg='powder blue')
+def on_entermul(e):
+    buttonmul.configure(bg='red')
+def on_leavemul(e):
+    buttonmul.configure(bg='powder blue')
+def on_enterequal(e):
+    buttonequal.configure(bg='red')
+def on_leaveequal(e):
+    buttonequal.configure(bg='powder blue')
+def on_leavediv(e):
+    buttondiv.configure(bg='powder blue')
+def on_enterdiv(e):
+    buttondiv.configure(bg='red')
+def on_enterclear(e):
+    buttonclear.configure(bg='red')
+def on_leaveclear(e):
+    buttonclear.configure(bg='powder blue')
+def on(e):
+    entrybox.configure(bg='red',fg='white')
+def le(e):
+    entrybox.configure(bg='orange',fg='black')
+def sin0(e):
+    buttonsin.configure(bg='red')
+def sin1(e):
+    buttonsin.configure(bg='powder blue')
+def cos0(e):
+    buttoncos.configure(bg='red')
+def cos1(e):
+    buttoncos.configure(bg='powder blue')
+def tan0(e):
+    buttontan.configure(bg='red')
+def tan1(e):
+    buttontan.configure(bg='powder blue')
+def log0(e):
+    buttonlog.configure(bg='red')
+def log1(e):
+    buttonlog.configure(bg='powder blue')
+def sqrt0(e):
+    buttonsqrt.configure(bg='red')
+def sqrt1(e):
+    buttonsqrt.configure(bg='powder blue')
+def sin2():
+    global ope
+    try:
+        ope = float(ope)
+        ope = math.sin(ope)
+        text.set(ope)           
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+def cmcos():
+    global ope
+    try:
+        ope = float(ope)
+        ope = math.cos(ope)
+        text.set(ope)           
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+def cmtan():
+    global ope
+    try:
+        ope = float(ope)
+        ope = np.tan(ope)
+        text.set(ope)           
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+def cmlog():
+    global ope
+    try:
+        ope = float(ope)
+        ope = np.log(ope)
+        text.set(ope)           
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+def cmsqrt():
+    global ope
+    try:
+        ope = float(ope)
+        ope = np.sqrt(ope)
+        text.set(ope)           
+    except:
+        messagebox.showinfo('Error','Something is wrong',parent=screen)
+text=StringVar()
+ope=''
+entrybox=Entry(screen,bg='orange',font=('arial',20,'italic bold'),bd=30,justify='right',textvariable=text)
+entrybox.grid(row=0,column=0,columnspan=4)
+button7=Button(screen,text='7',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('7'),activebackground='red',activeforeground='white')
+button7.grid(row=1,column=0)
+
+button8=Button(screen,text='8',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('8'),activebackground='gray',activeforeground='white')
+button8.grid(row=1,column=1)
+button9=Button(screen,text='9',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('9'),activebackground='red',activeforeground='white')
+button9.grid(row=1,column=2)
+buttonadd=Button(screen,text='+',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('+'),activebackground='orange',activeforeground='white')
+buttonadd.grid(row=1,column=3)
+button4=Button(screen,text='4',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('4'),activebackground='blue',activeforeground='white')
+button4.grid(row=2,column=0)
+button5=Button(screen,text='5',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('5'),activebackground='red',activeforeground='white')
+button5.grid(row=2,column=1)
+button6=Button(screen,text='6',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('6'),activebackground='pink',activeforeground='white')
+button6.grid(row=2,column=2)
+buttonsub=Button(screen,text='-',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('-'),activebackground='green',activeforeground='white')
+buttonsub.grid(row=2,column=3)
+button1=Button(screen,text='1',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('1'),activebackground='red',activeforeground='white')
+button1.grid(row=3,column=0)
+button2=Button(screen,text='2',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('2'),activebackground='pink',activeforeground='white')
+button2.grid(row=3,column=1)
+button3=Button(screen,text='3',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('3'),activebackground='green',activeforeground='white')
+button3.grid(row=3,column=2)
+buttonmul=Button(screen,text='*',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('*'),activebackground='red',activeforeground='white')
+buttonmul.grid(row=3,column=3)
+button0=Button(screen,text='0',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('0'),activebackground='yellow',activeforeground='white')
+button0.grid(row=4,column=0)
+buttonclear=Button(screen,text='C',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:clear(),activebackground='red',activeforeground='white')
+buttonclear.grid(row=4,column=1)
+buttonequal=Button(screen,text='=',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:equal(),activebackground='green',activeforeground='white')
+buttonequal.grid(row=4,column=2)
+buttondiv=Button(screen,text='/',font=('arial','20','italic bold'),bd=10,padx=16,pady=16,bg='powder blue',command=lambda:touch('/'),activebackground='orange',activeforeground='white')
+buttondiv.grid(row=4,column=3)
+buttonsin=Button(screen,text='sin',font=('arial','15','italic bold'),bd=10,padx=15,pady=19,bg='powder blue',command=lambda:sin2(),activebackground='gray',activeforeground='white')
+buttonsin.grid(row=0,column=4)
+
+buttoncos=Button(screen,text='cos',font=('arial','15','italic bold'),bd=10,padx=15,pady=19,bg='powder blue',command=cmcos,activebackground='gray',activeforeground='white')
+buttoncos.grid(row=1,column=4)
+
+buttontan=Button(screen,text='tan',font=('arial','15','italic bold'),bd=10,padx=16,pady=19,bg='powder blue',command=lambda:cmtan(),activebackground='gray',activeforeground='white')
+buttontan.grid(row=2,column=4)
+buttonlog=Button(screen,text='log',font=('arial','15','italic bold'),bd=10,padx=16,pady=19,bg='powder blue',command=lambda:cmlog(),activebackground='gray',activeforeground='white')
+buttonlog.grid(row=3,column=4)
+buttonsqrt=Button(screen,text='sqrt',font=('arial','15','italic bold'),bd=10,padx=15,pady=19,bg='powder blue',command=lambda:cmsqrt(),activebackground='gray',activeforeground='white')
+buttonsqrt.grid(row=4,column=4)
+button7.bind('<Enter>',on_enter7)
+button7.bind('<Leave>',on_leave7)
+button8.bind('<Enter>',on_enter8)
+button8.bind('<Leave>',on_leave8)
+button9.bind('<Enter>',on_enter9)
+button9.bind('<Leave>',on_leave9)
+button6.bind('<Enter>',on_enter6)
+button6.bind('<Leave>',on_leave6)
+button5.bind('<Enter>',on_enter5)
+button5.bind('<Leave>',on_leave5)
+button4.bind('<Enter>',on_enter4)
+button4.bind('<Leave>',on_leave4)
+button3.bind('<Enter>',on_enter3)
+button3.bind('<Leave>',on_leave3)
+button2.bind('<Enter>',on_enter2)
+button2.bind('<Leave>',on_leave2)
+button1.bind('<Enter>',on_enter1)
+button1.bind('<Leave>',on_leave1)
+button0.bind('<Enter>',on_enter0)
+button0.bind('<Leave>',on_leave0)
+buttonadd.bind('<Enter>',on_enteradd)
+buttonadd.bind('<Leave>',on_leaveadd)
+buttonmul.bind('<Enter>',on_entermul)
+buttonmul.bind('<Leave>',on_leavemul)
+buttonsub.bind('<Enter>',on_entersub)
+buttonsub.bind('<Leave>',on_leavesub)
+buttondiv.bind('<Enter>',on_enterdiv)
+buttondiv.bind('<Leave>',on_leavediv)
+
+buttonequal.bind('<Enter>',on_enterequal)
+buttonequal.bind('<Leave>',on_leaveequal)
+buttonclear.bind('<Enter>',on_enterclear)
+buttonclear.bind('<Leave>',on_leaveclear)
+entrybox.bind('<Enter>',on)
+entrybox.bind('<Leave>',le)
+buttonsin.bind('<Enter>',sin0)
+buttonsin.bind('<Leave>',sin1)
+buttoncos.bind('<Enter>',cos0)
+buttoncos.bind('<Leave>',cos1)
+buttontan.bind('<Enter>',tan0)
+buttontan.bind('<Leave>',tan1)
+buttonlog.bind('<Enter>',log0)
+buttonlog.bind('<Leave>',log1)
+buttonsqrt.bind('<Enter>',sqrt0)
+buttonsqrt.bind('<Leave>',sqrt1)
+screen.mainloop()
